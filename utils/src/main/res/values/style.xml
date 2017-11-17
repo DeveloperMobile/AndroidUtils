@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColorAlertDialogListItem">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:windowTitleStyle">@style/WindowTitleStyle</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColorAlertDialogListItem">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:windowTitleStyle">@style/WindowTitleStyle</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+    <style name="WindowTitleStyle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- Font Bold Color White 18 -->
+    <style name="font_18_bold_white">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <!-- Font Bold Italic 18 -->
+    <style name="font_18_italic_bold" parent="font_16_italic">
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+    <!-- Font Bold Italic 16 -->
+    <style name="font_16_italic_bold" parent="font_18_italic_bold">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- Font Bold Color White 16 -->
+    <style name="font_16_bold_white" parent="font_18_bold_white">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- Font Bold Color Blue 16 -->
+    <style name="font_16_bold_blue" parent="font_16_bold_white">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+    <!-- Font Itelic Color Black 10 -->
+    <style name="font_12_bold_black">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+    <!-- Font Italic Color Black 12 -->
+    <style name="font_12_italic">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <!-- Font Italic Color White 12 -->
+    <style name="font_12_italic_white" parent="font_12_italic">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <!-- Font Italic Color White 16 -->
+    <style name="font_16_italic_white" parent="font_12_italic_white">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- Font Italic Color White 10 -->
+    <style name="font_10_italic" parent="font_18_bold_white">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <!-- Font Italic/Bold Color Blue 16 -->
+    <style name="font_16_italic">
+        <item name="android:textStyle">italic|bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+</resources>
