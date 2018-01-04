@@ -3,6 +3,7 @@ package com.codigosandroid.utils.utils;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -135,6 +136,36 @@ public class AndroidUtil {
         }
 
         return imei;
+
+    }
+
+    /** Verifica se o dispositivo possui imei, se não utiliza o android_id
+     * @param context contexto da classe usuária do método */
+    public static String getSerial(Context context) {
+
+        String serial = null;
+
+        if (AndroidUtil.getImei(context) == null) {
+
+            serial = AndroidUtil.getAndroidId(context);
+
+        } else {
+
+            serial = AndroidUtil.getImei(context);
+
+        }
+
+        return serial;
+
+    }
+
+    /**Retorna se a tela é large ou xlarge
+     * @param context contexto da classe usuária do método */
+    public static boolean isTablet(Context context) {
+
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
 
     }
 

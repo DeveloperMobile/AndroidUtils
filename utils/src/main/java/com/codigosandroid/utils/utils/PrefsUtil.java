@@ -16,39 +16,36 @@ public class PrefsUtil {
         SharedPreferences pref = context.getSharedPreferences(PREF_ID, 0);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean(flag, on);
-        editor.commit();
+        editor.apply();
     }
 
     public static boolean getBoolean(Context context, String flag) {
         SharedPreferences pref = context.getSharedPreferences(PREF_ID, 0);
-        boolean b = pref.getBoolean(flag, true);
-        return b;
+        return pref.getBoolean(flag, false);
     }
 
     public static void setInteger(Context context, String flag, int valor) {
         SharedPreferences pref = context.getSharedPreferences(PREF_ID, 0);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(flag, valor);
-        editor.commit();
+        editor.apply();
     }
 
     public static int getInteger(Context context, String flag) {
         SharedPreferences pref = context.getSharedPreferences(PREF_ID, 0);
-        int i = pref.getInt(flag, 0);
-        return i;
+        return pref.getInt(flag, 0);
     }
 
     public static void setString(Context context, String flag, String valor) {
         SharedPreferences pref = context.getSharedPreferences(PREF_ID, 0);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(flag, valor);
-        editor.commit();
+        editor.apply();
     }
 
     public static String getString(Context context, String flag) {
         SharedPreferences pref = context.getSharedPreferences(PREF_ID, 0);
-        String s = pref.getString(flag, "");
-        return s;
+        return pref.getString(flag, "");
     }
 
 }
