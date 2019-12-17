@@ -1,5 +1,5 @@
 # AndroidUtils
-Versão recomentada:
+Versão recomendada:
 
 implementation 'com.github.developermobile:utils:2.0.0'
 
