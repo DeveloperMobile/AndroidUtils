@@ -1,10 +1,10 @@
 # AndroidUtils
-Versão recomentada:
+Versão recomendada:
 
-compile 'com.github.developermobile:utils:1.1.2'
+implementation 'com.github.developermobile:utils:2.0.0'
 
-Compilada com Android Studio 3.0.1.
+Compilada com Android Studio 3.5.3.
 
-compileSdkVersion 26
+compileSdkVersion 29
 
-buildToolsVersion '26.0.2'
+buildToolsVersion '29.0.2'
