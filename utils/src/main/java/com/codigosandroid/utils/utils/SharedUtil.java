@@ -9,7 +9,6 @@ import android.preference.PreferenceManager;
  */
 
 public class SharedUtil {
-
     public static String getString(Context context, String key) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getString(key, "");
@@ -24,5 +23,4 @@ public class SharedUtil {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getInt(key, 0);
     }
-
 }

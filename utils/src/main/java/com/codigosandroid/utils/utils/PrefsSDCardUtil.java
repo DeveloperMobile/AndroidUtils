@@ -9,7 +9,6 @@ import java.io.File;
  */
 
 public class PrefsSDCardUtil {
-
     public static final String PREF_ID = "prefs";
     private static final String TAG = PrefsSDCardUtil.class.getSimpleName();
 
@@ -19,8 +18,7 @@ public class PrefsSDCardUtil {
 
     public static boolean getBoolean(Context context, String chave) {
         String s = getString(context, chave);
-        boolean on = "1".equals(s);
-        return on;
+        return "1".equals(s);
     }
 
     public static void setInteger(Context context, String chave, int valor) {
@@ -45,5 +43,4 @@ public class PrefsSDCardUtil {
         LogUtil.debug(TAG, "getString: " + f);
         return IOUtil.readString(f);
     }
-
 }

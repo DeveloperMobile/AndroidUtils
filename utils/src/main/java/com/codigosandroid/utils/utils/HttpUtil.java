@@ -15,8 +15,8 @@ public class HttpUtil {
 
     private final String TAG = HttpUtil.class.getSimpleName();
 
-    public final int TIMEOUT_MILLIS = 15000;
-    public boolean LOG_ON = false;
+    private final int TIMEOUT_MILLIS = 15000;
+    private boolean LOG_ON = false;
     private String contentType;
     private String charsetToEncode;
 
@@ -25,7 +25,6 @@ public class HttpUtil {
     }
 
     public String doGet(String url, Map<String, String> params, String charset) throws Exception {
-
         String queryString = getQueryString(params);
 
         if (queryString != null && queryString.trim().length() > 0) {
@@ -41,7 +40,6 @@ public class HttpUtil {
         String s = null;
 
         try {
-
             conn = (HttpURLConnection) u.openConnection();
 
             if (contentType != null) {
@@ -71,19 +69,12 @@ public class HttpUtil {
             }
 
             in.close();
-
         } catch (Exception e) {
-
             LogUtil.error(TAG, e.getMessage(), e);
-
         } finally {
-
             if (conn != null) { conn.disconnect(); }
-
         }
-
         return s;
-
     }
 
     public String doDelete(String url) throws Exception {
@@ -91,7 +82,6 @@ public class HttpUtil {
     }
 
     public String doDelete(String url, Map<String, String> params, String charset) throws Exception {
-
         String queryString = getQueryString(params);
 
         if (queryString != null && queryString.trim().length() > 0) {
@@ -99,9 +89,7 @@ public class HttpUtil {
         }
 
         if (LOG_ON) {
-
             LogUtil.debug(TAG, ">> Http.doDelete: " + url);
-
         }
 
         URL u = new URL(url);
@@ -109,7 +97,6 @@ public class HttpUtil {
         String s = null;
 
         try {
-
             conn = (HttpURLConnection) u.openConnection();
 
             if (contentType != null) {
@@ -129,23 +116,15 @@ public class HttpUtil {
             }
 
             in.close();
-
         } catch (Exception e) {
-
             LogUtil.error(TAG, e.getMessage(), e);
-
         } finally {
-
             if (conn != null) { conn.disconnect(); }
-
         }
-
         return s;
-
     }
 
     public String doPost(String url, Map<String, String> params, String charset) throws Exception {
-
         String queryString = getQueryString(params);
         byte[] bytes = params != null ? queryString.getBytes(charset) : null;
 
@@ -154,11 +133,9 @@ public class HttpUtil {
         }
 
         return doPost(url, params, charset);
-
     }
 
     public String doPost(String url, byte[] params, String charset) throws Exception {
-
         if (LOG_ON) {
             LogUtil.info(TAG, ">> Http.doPost: " + url);
         }
@@ -168,7 +145,6 @@ public class HttpUtil {
         String s = null;
 
         try {
-
             conn = (HttpURLConnection) u.openConnection();
 
             if (contentType != null) {
@@ -183,12 +159,10 @@ public class HttpUtil {
             conn.connect();
 
             if (params != null) {
-
                 OutputStream out = conn.getOutputStream();
                 out.write(params);
                 out.flush();
                 out.close();
-
             }
 
             InputStream in = null;
@@ -206,24 +180,16 @@ public class HttpUtil {
             if (LOG_ON) {
                 LogUtil.info(TAG, "<< Http.doPost: " + s);
             }
-
         } catch (Exception e) {
-
             LogUtil.error(TAG, e.getMessage(), e);
-
         } finally {
-
             if (conn != null) { conn.disconnect(); }
-
         }
-
         return s;
-
     }
 
     // Retorna a QueryString para GET
     public String getQueryString(Map<String, String> params) throws Exception {
-
         if (params == null || params.size() == 0) {
             return null;
         }
@@ -231,28 +197,20 @@ public class HttpUtil {
         String urlParams = null;
 
         for (String chave : params.keySet()) {
-
             Object objValor = params.get(chave);
 
             if (objValor != null) {
-
                 String valor = objValor.toString();
 
                 if (charsetToEncode != null) {
-
                     valor = URLEncoder.encode(valor, charsetToEncode);
-
                 }
 
                 urlParams = urlParams == null ? "" : urlParams + "&";
                 urlParams += chave + "=" + valor;
-
             }
-
         }
-
         return urlParams;
-
     }
 
     public String getContentType() {

@@ -10,7 +10,6 @@ import java.io.File;
  */
 
 public class SDCardUtil {
-
     private static final String TAG = SDCardUtil.class.getSimpleName();
 
     /**
@@ -78,7 +77,6 @@ public class SDCardUtil {
         if (!dir.exists()) {
             dir.mkdirs();
         }
-
         return dir;
     }
 
@@ -93,5 +91,4 @@ public class SDCardUtil {
         LogUtil.debug(TAG, "<< getSdCardFile > " + f);
         return f;
     }
-
 }

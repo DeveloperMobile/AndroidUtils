@@ -14,7 +14,6 @@ import java.io.IOException;
  */
 
 public class PrefsFileUtil {
-
     public static final String PREF_ID = "prefs";
     private static final String TAG = PrefsFileUtil.class.getSimpleName();
 
@@ -24,8 +23,7 @@ public class PrefsFileUtil {
 
     public static boolean getBoolean(Context context, String chave) {
         String s = getString(context, chave);
-        boolean on = "1".equals(s);
-        return on;
+        return "1".equals(s);
     }
 
     public static void setInteger(Context context, String chave, int valor) {
@@ -59,5 +57,4 @@ public class PrefsFileUtil {
         LogUtil.debug(TAG, "PrefsFile.getString file: " + f + " > " + s);
         return s;
     }
-
 }

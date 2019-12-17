@@ -2,11 +2,11 @@ package com.codigosandroid.utils.activity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.Toast;
 
 import com.codigosandroid.utils.utils.AlertUtil;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * Created by Tiago on 17/11/2017.
@@ -57,7 +57,7 @@ public class BaseActivity extends DebugActivity {
     }
 
     protected void snack(View view, String msg, final Runnable runnable) {
-        Snackbar.make(view, msg, 0).setAction("Ok", new View.OnClickListener() {
+        Snackbar.make(view, msg, Snackbar.LENGTH_LONG).setAction("Ok", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (runnable != null) {

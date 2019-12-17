@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
  */
 
 public class PrefsUtil {
-
     public static final String PREF_ID = "utils";
 
     public static void setBoolean(Context context, String flag, boolean on) {
@@ -47,5 +46,4 @@ public class PrefsUtil {
         SharedPreferences pref = context.getSharedPreferences(PREF_ID, 0);
         return pref.getString(flag, "");
     }
-
 }

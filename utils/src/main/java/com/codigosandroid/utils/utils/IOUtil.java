@@ -56,11 +56,9 @@ public class IOUtil<T> {
             }
             byte[] bytes = bos.toByteArray();
             return bytes;
-
         } catch (Exception e) {
             LogUtil.error(TAG, e.getMessage(), e);
             return null;
-
         } finally {
             try {
                 bos.close();
@@ -69,7 +67,6 @@ public class IOUtil<T> {
                 LogUtil.error(TAG, e.getMessage(), e);
             }
         }
-
     }
 
     public static void writeString(OutputStream out, String string) {
@@ -91,9 +88,7 @@ public class IOUtil<T> {
      * @param file
      * @param  string*/
     public static void writeString(File file, String string) {
-
         writeBytes(file, string.getBytes());
-
     }
 
     // Escrevendo os bytes no arquivo
@@ -123,7 +118,6 @@ public class IOUtil<T> {
             LogUtil.error(TAG, e.getMessage(), e);
             return null;
         }
-
     }
 
     /** Salva a figura em arquivo
@@ -134,6 +128,7 @@ public class IOUtil<T> {
             if (!file.exists()) {
                 file.createNewFile();
             }
+
             FileOutputStream out = new FileOutputStream(file);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
             out.close();
@@ -143,7 +138,7 @@ public class IOUtil<T> {
     }
 
     public interface Callback {
-        public void onFileSave(File file, boolean exists);
+        void onFileSave(File file, boolean exists);
     }
 
     /** Salva o bitmap em arquivo. Utiliza a URL para descobrir o nome.
@@ -159,6 +154,7 @@ public class IOUtil<T> {
             String fileName = url.substring(url.lastIndexOf("/"));
 
             File file = SDCardUtil.getPublicFile(fileName, Environment.DIRECTORY_PICTURES);
+
             if (file.exists()) {
                 callback.onFileSave(file, true);
             } else {
@@ -191,7 +187,6 @@ public class IOUtil<T> {
     }
 
     public static void setWriteFile(File file, String text) {
-
         OutputStream out = null;
         OutputStreamWriter osw = null;
         BufferedWriter bw = null;
@@ -207,33 +202,20 @@ public class IOUtil<T> {
             bw.close();
 
         } catch (Exception e) {
-
             LogUtil.error(TAG, e.getMessage(), e);
-
         } finally {
-
-            try {
-
-                out.close();
-
-            } catch (IOException e) {
-
+            try { out.close(); } catch (IOException e) {
                 LogUtil.error(TAG, e.getMessage(), e);
-
             }
-
         }
-
     }
 
     public static List<String> getRowsFile(File file) {
-
         InputStream in = null;
         InputStreamReader isr = null;
         BufferedReader br = null;
 
         try {
-
             in = new FileInputStream(file);
             isr = new InputStreamReader(in);
             br = new BufferedReader(isr);
@@ -242,53 +224,34 @@ public class IOUtil<T> {
             List<String> linhas = new ArrayList<>();
 
             while ((linha = br.readLine()) != null) {
-
                 linhas.add(linha);
-
             }
-
         } catch (Exception e) {
-
             LogUtil.error(TAG, e.getMessage(), e);
             return null;
-
         } finally {
-
-            try {
-                in.close();
-            } catch (IOException e) {
+            try { in.close(); } catch (IOException e) {
                 LogUtil.error(TAG, e.getMessage(), e);
             }
-
         }
-
         return null;
-
     }
 
     // Lê um arquivo Json
     public static BufferedReader readJson(File file) throws FileNotFoundException {
-
         return new BufferedReader(new FileReader(file));
-
     }
 
     // Carraga uma lista de objetos apartir de um arquivo .json
     public List<T> getJsonToObject(Context context, String name) throws FileNotFoundException {
-
         File file = FileUtil.getFile(context, name);
 
         if (file.exists()) {
-
             Gson gson = new Gson();
             BufferedReader br = IOUtil.readJson(file);
             ListObjectUtil listObjects = gson.fromJson(br, ListObjectUtil.class);
             return (List<T>) listObjects.getObjectUtils();
-
         }
-
         return null;
-
     }
-
 }

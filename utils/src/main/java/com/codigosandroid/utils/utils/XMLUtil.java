@@ -23,9 +23,7 @@ public class XMLUtil {
 
     // Retorna a tag raiz do XML
     public static Element getRoot(String xml, String charset) {
-
         try {
-
             InputStream in = null;
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setValidating(false);
@@ -41,13 +39,9 @@ public class XMLUtil {
 
             return root;
         } catch (Exception e) {
-
             LogUtil.error(TAG, e.getMessage(), e);
-
         }
-
         return null;
-
     }
 
     // Retorna o texto dentro da tag
@@ -108,5 +102,4 @@ public class XMLUtil {
         }
         return null;
     }
-
 }
